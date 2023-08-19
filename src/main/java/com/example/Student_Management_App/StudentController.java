@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/student")
 public class StudentController {
     @Autowired
     StudentService studentService;
@@ -36,7 +37,7 @@ public class StudentController {
         return "student deleted successfully";
     }
     // delete a student ---> path variable
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteByPath/{id}")
     public String deleteStudentByPath(@PathVariable("id") int regNo){
         studentService.deleteStudent(regNo);
         return "student deleted successfully";
@@ -47,17 +48,17 @@ public class StudentController {
        return studentService.changeCourse(regNo,newCourse);
     }
     // change course of a student  ----> Both as path variables
-    @PutMapping("/course/{id}/{c}")
+    @PutMapping("/courseByPath/{id}/{c}")
     public Student changeCourseByPath(@PathVariable("id") int regNo,@PathVariable("c") String newCourse){
         return studentService.changeCourse(regNo,newCourse);
     }
     // change course --> One as request param, one as path variable
-    @PutMapping("/course/{c}")
+    @PutMapping("/courseByMix/{c}")
     public Student changeCourseByMix(@RequestParam("id") int regNo, @PathVariable("c") String newCourse){
         return studentService.changeCourse(regNo,newCourse);
     }
     // change course and age ---> regNo as request param, entire student object as request body
-    @PutMapping("/course")
+    @PutMapping("/courseByBody")
     public Student changeCourseByBody(@RequestParam("id") int regNo,@RequestBody Student student){
         return studentService.changeCourseByBody(regNo,student);
     }
