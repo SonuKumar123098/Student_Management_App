@@ -1,8 +1,10 @@
 package com.example.Student_Management_App;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class StudentRepository {
     Map<Integer,Student> db=new HashMap<>();
 
