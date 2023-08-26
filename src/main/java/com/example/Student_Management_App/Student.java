@@ -1,5 +1,8 @@
 package com.example.Student_Management_App;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
     private int regNo;
     private String name;
