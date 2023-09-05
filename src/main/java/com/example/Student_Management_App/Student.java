@@ -9,6 +9,7 @@ public class Student {
     private int rollNo;
     private String course;
     private int age;
+    private Month monthOfBirth=Month.FEBRUARY;
 
     public Student() {
     }
@@ -60,5 +61,16 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "regNo=" + regNo +
+                ", name='" + name + '\'' +
+                ", rollNo=" + rollNo +
+                ", course='" + course + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

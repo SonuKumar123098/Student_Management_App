@@ -9,6 +9,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
+//@Slf4j
 public class StudentController {
     @Autowired
     StudentService studentService;
@@ -18,6 +19,7 @@ public class StudentController {
     }
     @PostMapping("/add")
     public String addStudent(@RequestBody Student student){
+//        log.warn("student added successfully");
         studentService.addStudent(student);
         return "student has been added successfully";
     }
@@ -35,6 +37,7 @@ public class StudentController {
     public String deleteStudent(@RequestParam("q") int regNo){
         studentService.deleteStudent(regNo);
         return "student deleted successfully";
+
     }
     // delete a student ---> path variable
     @DeleteMapping("/deleteByPath/{id}")
